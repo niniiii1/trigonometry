@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ტრიგონომეტრიის სრული ტესტი (30 კითხვა)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f3;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 750px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .section-title {
+            background-color: #34495e;
+            color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-top: 40px;
+            font-size: 1.2em;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 20px;
+            background: #fdfdfd;
+            border-left: 5px solid #3498db;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        .options label {
+            display: block;
+            padding: 10px;
+            background: #f8f9fa;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .options label:hover {
+            background: #edf2f7;
+            border-color: #cbd5e0;
+        }
+        .options input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.1);
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 4px;
+            transition: background 0.2s;
+            box-shadow: 0 4px 6px rgba(46, 204, 113, 0.2);
+        }
+        button:hover {
+            background-color: #27ae60;
+        }
+        .result-box {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+        .correct-ans {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: #e6fffa;
+            border: 1px solid #b2f5ea;
+            color: #234e52;
+            border-radius: 6px;
+            font-size: 0.95em;
+            display: none;
+            font-weight: 500;
+        }
+        .math-style {
+            font-family: 'Courier New', Courier, monospace;
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📐 ტრიგონომეტრიის სრული ტესტი</h1>
+    <div class="subtitle">შემუშავებულია შენი საკონსპექტო მასალის მიხედვით</div>
+    
+    <form id="quizForm">
+        
+        <div class="section-title">ბლოკი 1: ერთეულოვანი წრეწირი, ფუნქციათა განსაზღვრებები და ნიშნები</div>
+
+        <div class="question">
+            <div class="question-text">1. რა არის ერთეულოვანი წრეწირის რადიუსი შენი კონსპექტის მიხედვით?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q1" value="w"> R = 0</label></li>
+                <li><label><input type="radio" name="q1" value="c"> R = 1</label></li>
+                <li><label><input type="radio" name="q1" value="w"> R = π</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q1">💡 სწორია: R = 1</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">2. სად მდებარეობს ერთეულოვანი წრეწირის ცენტრი?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q2" value="c"> საკოორდინატო სიბრტყის სათავეში (0,0)</label></li>
+                <li><label><input type="radio" name="q2" value="w"> აბსცისათა ღერძზე (1,0)</label></li>
+                <li><label><input type="radio" name="q2" value="w"> ორდინატთა ღერძზე (0,1)</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q2">💡 სწორია: საკოორდინატო სიბრტყის სათავეში (0,0)</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">3. მართკუთხა სამკუთხედში, როგორ იპოვება კუთხის სინუსი (sin)?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q3" value="w"> მიმდებარე კათეტის შეფარდებით ჰიპოტენუზასთან</label></li>
+                <li><label><input type="radio" name="q3" value="c"> მოპირდაპირე კათეტის შეფარდებით ჰიპოტენუზასთან</label></li>
+                <li><label><input type="radio" name="q3" value="w"> კათეტების ერთმანეთთან შეფარდებით</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q3">💡 სწორია: მოპირდაპირე კათეტის შეფარდებით ჰიპოტენუზასთან</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">4. რადგან ერთეულოვან წრეწირზე ჰიპოტენუზა უდრის 1-ს, საბოლოოდ რისი ტოლია sin კოორდინატებში?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q4" value="w"> x კოორდინატის (აბსცისის)</label></li>
+                <li><label><input type="radio" name="q4" value="c"> y კოორდინატის (ორდინატის)</label></li>
+                <li><label><input type="radio" name="q4" value="w"> x/y შეფარდების</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q4">💡 სწორია: y კოორდინატის (ორდინატის)</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">5. რისი ტოლია კოსინუსი (cos) ერთეულოვან წრეწირზე კოორდინატთა მიხედვით?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q5" value="c"> x კოორდინატის (აბსცისის)</label></li>
+                <li><label><input type="radio" name="q5" value="w"> y კოორდინატის (ორდინატის)</label></li>
+                <li><label><input type="radio" name="q5" value="w"> y/x შეფარდების</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q5">💡 სწორია: x კოორდინატის (აბსცისის)</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">6. რომელ მეოთხედებშია კოსინუსი (cos) დადებითი?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q6" value="w"> I და II მეოთხედში</label></li>
+                <li><label><input type="radio" name="q6" value="w"> I და III მეოთხედში</label></li>
+                <li><label><input type="radio" name="q6" value="c"> I და IV მეოთხედში</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q6">💡 სწორია: I და IV მეოთხედში</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">7. რომელ მეოთხედებშია ტანგენსი (tg) და კოტანგენსი (ctg) დადებითი?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q7" value="w"> I და II მეოთხედში</label></li>
+                <li><label><input type="radio" name="q7" value="c"> I და III მეოთხედში</label></li>
+                <li><label><input type="radio" name="q7" value="w"> II და IV მეოთხედში</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q7">💡 სწორია: I და III მეოთხედში</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">8. როგორია tg და ctg ფუნქციების ზრდადობა/კლებადობა (მონოტონურობა)?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q8" value="w"> tg მუდამ კლებადია, ctg მუდამ ზრდადი</label></li>
+                <li><label><input type="radio" name="q8" value="c"> tg მუდამ ზრდადია, ctg მუდამ კლებადი</label></li>
+                <li><label><input type="radio" name="q8" value="w"> ორივე მუდამ ზრდადია</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q8">💡 სწორია: tg მუდამ ზრდადია, ctg მუდამ კლებადი</div>
+        </div>
+
+        <div class="section-title">ბლოკი 2: პერიოდულობა, ლუწ-კენტობა და მნიშვნელობათა ცხრილი</div>
+
+        <div class="question">
+            <div class="question-text">9. რა არის sin და cos ფუნქციების ძირითადი პერიოდი?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q9" value="w"> π</label></li>
+                <li><label><input type="radio" name="q9" value="c"> 2π</label></li>
+                <li><label><input type="radio" name="q9" value="w"> π/2</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q9">💡 სწორია: 2π</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">10. რა არის ctg და tg ფუნქციების ძირითადი პერიოდი?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q10" value="c"> π</label></li>
+                <li><label><input type="radio" name="q10" value="w"> 2π</label></li>
+                <li><label><input type="radio" name="q10" value="w"> 3π/2</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q10">💡 სწორია: π</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">11. ძირითადი ფუნქციებიდან რომელია ერთადერთი ლუწი ტრიგონომეტრიული ფუნქცია?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q11" value="w"> sin x</label></li>
+                <li><label><input type="radio" name="q11" value="c"> cos x</label></li>
+                <li><label><input type="radio" name="q11" value="w"> tg x</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q11">💡 სწორია: cos x (რადგან cos(-x) = cos x)</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">12. რისი ტოლია sin 30° და cos 60°?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q12" value="w"> √3/2</label></li>
+                <li><label><input type="radio" name="q12" value="c"> 1/2</label></li>
+                <li><label><input type="radio" name="q12" value="w"> √2/2</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q12">💡 სწორია: 1/2</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">13. რომელ გრადუსზე აქვთ სინუსსა და კოსინუსს აბსოლუტურად ტოლი მნიშვნელობა?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q13" value="w"> 30° (π/6)</label></li>
+                <li><label><input type="radio" name="q13" value="c"> 45° (π/4)</label></li>
+                <li><label><input type="radio" name="q13" value="w"> 60° (π/3)</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q13">💡 სწორია: 45° (ორივე უდრის √2/2)</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">14. რა არის კოსინუსის მნიშვნელობათა არე (მინიმალური და მაქსიმალური წერტილები)?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q14" value="w"> [0; 1]</label></li>
+                <li><label><input type="radio" name="q14" value="w"> [-2; 2]</label></li>
+                <li><label><input type="radio" name="q14" value="c"> [-1; 1]</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q14">💡 სწორია: მაქსიმუმია 1, მინიმუმია -1</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">15. რისი ტოლია tg 90° ცხრილის მიხედვით?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q15" value="w"> 0</label></li>
+                <li><label><input type="radio" name="q15" value="w"> 1</label></li>
+                <li><label><input type="radio" name="q15" value="c"> არ არსებობს (განსაზღვრული არ არის)</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q15">💡 სწორია: არ არსებობს (რადგან cos 90° = 0 და ნულზე გაყოფა არ შეიძლება)</div>
+        </div>
+
+        <div class="section-title">ბლოკი 3: ძირითადი იდენტობები და დაყვანის ფორმულები</div>
+
+        <div class="question">
+            <div class="question-text">16. რა არის მთავარი ტრიგონომეტრიული იგივეობა?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q16" value="w"> sin α + cos α = 1</label></li>
+                <li><label><input type="radio" name="q16" value="c"> sin²α + cos²α = 1</label></li>
+                <li><label><input type="radio" name="q16" value="w"> tg²α + ctg²α = 1</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q16">💡 სწორია: sin²α + cos²α = 1</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">17. რისი ტოლია გამოსახულება ctg²α + 1?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q17" value="w"> 1 / cos²α</label></li>
+                <li><label><input type="radio" name="q17" value="c"> 1 / sin²α</label></li>
+                <li><label><input type="radio" name="q17" value="w"> tg²α</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q17">💡 სწორია: 1 / sin²α</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">18. რისი ტოლია ურთიერთშებრუნებული ფუნქციების ნამრავლი: ctg α · tg α?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q18" value="w"> 0</label></li>
+                <li><label><input type="radio" name="q18" value="c"> 1</label></li>
+                <li><label><input type="radio" name="q18" value="w"> -1</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q18">💡 სწორია: 1</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">19. დაყვანის ფორმულებში, რომელი კუთხეების დროს იცვლის ფუნქცია სახელს (მაგ: სინუსი გადადის კოსინუსში)?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q19" value="w"> 180° და 360°</label></li>
+                <li><label><input type="radio" name="q19" value="c"> 90° და 270° (ვერტიკალური ღერძი)</label></li>
+                <li><label><input type="radio" name="q19" value="w"> 0° და 180°</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q19">💡 სწორია: 90° და 270°</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">20. იცვლის თუ არა ფუნქცია სახელს 180° და 360° კუთხეებთან მიმართებაში?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q20" value="w"> დიახ, იცვლის</label></li>
+                <li><label><input type="radio" name="q20" value="c"> არა, სახელი იგივე რჩება</label></li>
+                <li><label><input type="radio" name="q20" value="w"> იცვლება მხოლოდ კოსინუსი</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q20">💡 სწორია: არა, სახელი იგივე რჩება</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">21. რისი ტოლია sin(90° - 45°)?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q21" value="w"> -cos 45°</label></li>
+                <li><label><input type="radio" name="q21" value="c"> cos 45°</label></li>
+                <li><label><input type="radio" name="q21" value="w"> sin 45°</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q21">💡 სწორია: cos 45° (90°-ზე სახელი იცვლება, კუთხე I მეოთხედშია, ამიტომ ნიშანი დადებითია)</div>
+        </div>
+
+        <div class="section-title">ბლოკი 4: ექსტრემუმები და სპეციალური შემთხვევები</div>
+
+        <div class="question">
+            <div class="question-text">22. შეუძლიათ თუ არა sin x და cos x ფუნქციებს, რომ ერთსა და იმავე წერტილში (კუთხეზე) ერთდროულად გახდნენ 1-ის ტოლი?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q22" value="w"> დიახ, შესაძლებელია</label></li>
+                <li><label><input type="radio" name="q22" value="c"> არა, შეუძლებელია (ეწინააღმდეგება ძირითად იგივეობას)</label></li>
+                <li><label><input type="radio" name="q22" value="w"> მხოლოდ 0 გრადუსზე</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q22">💡 სწორია: არა, შეუძლებელია</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">23. მაქსიმუმ რისი ტოლი შეიძლება იყოს გამოსახულება: sin x + cos x?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q23" value="w"> 1</label></li>
+                <li><label><input type="radio" name="q23" value="w"> 2</label></li>
+                <li><label><input type="radio" name="q23" value="c"> √2</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q23">💡 სწორია: √2</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">24. შენი კონსპექტის ამოცანაში f(x) = (sin x - cos x)² - 2sin x, რა იქნა ნაპოვნი მთლიანი ფუნქციის უდიდეს მნიშვნელობად?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q24" value="w"> 2</label></li>
+                <li><label><input type="radio" name="q24" value="c"> 4</label></li>
+                <li><label><input type="radio" name="q24" value="w"> 0</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q24">💡 სწორია: 4</div>
+        </div>
+
+        <div class="section-title">ბლოკი 5: შექცეული ფუნქციები და განტოლებები</div>
+
+        <div class="question">
+            <div class="question-text">25. შინაარსობრივად, რას გვიჩვენებს არკსინუსი (arcsin a)?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q25" value="w"> სინუსის შებრუნებულ წილადს 1/sin</label></li>
+                <li><label><input type="radio" name="q25" value="c"> კუთხეს (რადიანს), რომლის სინუსიც უდრის a-ს</label></li>
+                <li><label><input type="radio" name="q25" value="w"> კოსინუსის საპირისპირო მნიშვნელობას</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q25">💡 სწორია: კუთხეს, რომლის სინუსიც უდრის a-ს</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">26. რა არის arcsin a ფუნქციის მნიშვნელობათა არე (ცვლილების არე)?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q26" value="w"> [0; π]</label></li>
+                <li><label><input type="radio" name="q26" value="c"> [-π/2; π/2]</label></li>
+                <li><label><input type="radio" name="q26" value="w"> (-∞; +∞)</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q26">💡 სწორია: [-π/2; π/2]</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">27. რა არის arccos a ფუნქციის მნიშვნელობათა არე?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q27" value="c"> [0; π]</label></li>
+                <li><label><input type="radio" name="q27" value="w"> [-π/2; π/2]</label></li>
+                <li><label><input type="radio" name="q27" value="w"> [-π; π]</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q27">💡 სწორია: [0; π]</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">28. რა არის ზოგადი სახის ფორმულა განტოლებისთვის: sin x = a?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q28" value="w"> x = ± arcsin a + 2πk</label></li>
+                <li><label><input type="radio" name="q28" value="c"> x = (-1)ᵏ · arcsin a + πk, k ∈ ℤ</label></li>
+                <li><label><input type="radio" name="q28" value="w"> x = arcsin a + πk</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q28">💡 სწორია: x = (-1)ᵏ · arcsin a + πk</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">29. რა არის ზოგადი ფორმულა განტოლებისთვის: cos x = a?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q29" value="c"> x = ± arccos a + 2πk, k ∈ ℤ</label></li>
+                <li><label><input type="radio" name="q29" value="w"> x = arccos a + πk</label></li>
+                <li><label><input type="radio" name="q29" value="w"> x = (-1)ᵏ · arccos a + 2πk</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q29">💡 სწორია: x = ± arccos a + 2πk</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">30. ნახაზების მიხედვით, რა არის კერძო ამონახსნები cos x = -1 და sin x = 0 განტოლებებისთვის?</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q30" value="c"> cos x = -1 -> x = π + 2πk; sin x = 0 -> x = πk</label></li>
+                <li><label><input type="radio" name="q30" value="w"> cos x = -1 -> x = 2πk; sin x = 0 -> x = π/2 + πk</label></li>
+                <li><label><input type="radio" name="q30" value="w"> ორივეს ამონახსნია x = 2πk</label></li>
+            </ul>
+            <div class="correct-ans" id="ans_q30">💡 სწორია: cos x = -1 -> x = π + 2πk; sin x = 0 -> x = πk</div>
+        </div>
+
+        <button type="button" onclick="calculateScore()">📊 ტესტის დასრულება და შემოწმება</button>
+    </form>
+
+    <div class="result-box" id="resultBlock"></div>
+</div>
+
+<script>
+    function calculateScore() {
+        const totalQuestions = 30;
+        let finalScore = 0;
+        const form = document.getElementById('quizForm');
+
+        for (let i = 1; i <= totalQuestions; i++) {
+            const selectedOption = form.querySelector(`input[name="q${i}"]:checked`);
+            
+            // თუ პასუხი სწორია
+            if (selectedOption && selectedOption.value === 'c') {
+                finalScore++;
+            }
+            
+            // გამოვაჩინოთ მინიშნება-განმარტება ყველა კითხვაზე
+            const adviceBox = document.getElementById(`ans_q123456789101112131415161718192021222324252627282930` ? `ans_q${i}` : '');
+            if(adviceBox) {
+                adviceBox.style.display = 'block';
+            }
+        }
+
+        // შედეგის ბლოკის ჩვენება
+        const resultBlock = document.getElementById('resultBlock');
+        resultBlock.style.display = 'block';
+        
+        // პროცენტის გამოთვლა
+        const percentage = Math.round((finalScore / totalQuestions) * 100);
+
+        if (percentage >= 80) {
+            resultBlock.style.backgroundColor = '#c6f6d5';
+            resultBlock.style.color = '#22543d';
+            resultBlock.innerHTML = `🎉 შესანიშნავია! შენი შედეგია: ${finalScore} / ${totalQuestions} (${percentage}%)`;
+        } else if (percentage >= 50) {
+            resultBlock.style.backgroundColor = '#feebc8';
+            resultBlock.style.color = '#744210';
+            resultBlock.innerHTML = `👍 კარგია, მაგრამ გადამეორება არ გაწყენდა: ${finalScore} / ${totalQuestions} (${percentage}%)`;
+        } else {
+            resultBlock.
